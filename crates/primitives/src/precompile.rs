@@ -8,7 +8,7 @@ use core::fmt;
 pub type PrecompileResult = Result<(u64, Vec<u8>), PrecompileError>;
 
 pub type StandardPrecompileFn = fn(&[u8], u64) -> PrecompileResult;
-pub type EnvPrecompileFn = fn(&[u8], u64, env: &Env) -> PrecompileResult;
+pub type EnvPrecompileFn = fn(&[u8], u64, &Env) -> PrecompileResult;
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum PrecompileError {

@@ -315,6 +315,7 @@ impl<'a, DB: Database> EvmContext<'a, DB> {
             Precompile::Env(fun) => {
                 let mut env = self.env().clone();
                 env.msg = crate::primitives::MsgEnv {
+                    callee: inputs.context.address,
                     caller: inputs.context.caller,
                 };
                 fun(input_data, gas.limit(), &env)

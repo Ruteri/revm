@@ -22,11 +22,13 @@ pub struct Env {
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct MsgEnv {
+    pub callee: Address,
     pub caller: Address,
 }
 impl Default for MsgEnv {
     fn default() -> Self {
         Self {
+            callee: Address::ZERO,
             caller: Address::ZERO,
         }
     }
